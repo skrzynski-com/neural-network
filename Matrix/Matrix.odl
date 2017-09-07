@@ -1,0 +1,68 @@
+// Matrix.odl : type library source for OLE Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (Matrix.tlb) that will become a resource in
+// Matrix.ocx.
+
+#include <olectl.h>
+
+[ uuid(2E618090-802A-11D1-B27C-000000000000), version(1.0),
+  helpstring("Matrix OLE Control module"), control ]
+library MATRIXLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CMatrixCtrl
+
+	[ uuid(2E618091-802A-11D1-B27C-000000000000),
+	  helpstring("Dispatch interface for Matrix Control"), hidden ]
+	dispinterface _DMatrix
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMatrixCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMatrixCtrl)
+			[id(1)] void Reset();
+			[id(2)] void GetData(IUnknown* p);
+			[id(3)] void PutData(IUnknown* p);
+			[id(4)] void InvalidateLine(short line);
+			[id(5)] void ResetBlack();
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CMatrixCtrl
+
+	[ uuid(2E618092-802A-11D1-B27C-000000000000),
+	  helpstring("Event interface for Matrix Control") ]
+	dispinterface _DMatrixEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CMatrixCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CMatrixCtrl
+
+	[ uuid(2E618093-802A-11D1-B27C-000000000000),
+	  helpstring("Matrix Control"), control ]
+	coclass Matrix
+	{
+		[default] dispinterface _DMatrix;
+		[default, source] dispinterface _DMatrixEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+};
